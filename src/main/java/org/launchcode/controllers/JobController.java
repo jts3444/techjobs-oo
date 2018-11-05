@@ -41,6 +41,21 @@ public class JobController {
         // new Job and add it to the jobData data store. Then
         // redirect to the job detail view for the new Job.
 
+        // if there are errors, returns to add page
+        if(errors.hasErrors()){
+            return "add";
+        }
+
+        Job newJob = new Job();
+
+        newJob.setName(jobForm.getName());
+        newJob.setEmployer(jobForm.getEmployers());
+        newJob.setLocations(jobForm.getLocations());
+        newJob.setCoreCompetencies(jobForm.getCoreCompetencies());
+        newJob.setPositionTypes(jobForm.getPositionTypes());
+
+        jobData.add(newJob);
+
         return "";
 
     }
